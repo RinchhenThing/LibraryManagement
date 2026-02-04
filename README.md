@@ -59,4 +59,10 @@ book_api/
 │   └── books.py
 
 
+First: Lets setup  the database 
+a. pip install sqlalchemy
+b. write database.py 
 
+Then, lets focus on models
+  this is where the PK and FK live  
+a. Lets write a model for author then book 
