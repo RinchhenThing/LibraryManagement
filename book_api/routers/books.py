@@ -29,9 +29,9 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
     return db_book 
 
 #to list the books 
-@router.get("/{book_id}", response_model=list[BookResponse])
+@router.get("/", response_model=list[BookResponse])
 def list_books(db: Session = Depends(get_db)):
-    return = db.query(Book).all()
+    return db.query(Book).all()
 
 #to get by id 
 @router.get("/{book_id}", response_model=BookResponse)
