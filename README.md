@@ -196,6 +196,16 @@ We will simply import status and then apply the rule in a if statement, that ren
 
 ---
 
+## Rental History 
+
+Lets create a rental History table.
+
+**Relationship:**
+- One book -> many rantals 
+- One rental -> one book 
+
+## Step 1: Create a rental model 
+
 
 
 
