@@ -23,7 +23,8 @@ def get_db():
 def create_book(book: BookCreate, db: Session = Depends(get_db)):
     db_book = Book(
         title=book.title,
-        author_id=book.author_id 
+        author_id=book.author_id,
+        is_rented=book.is_rented
     )
     db.add(db_book) 
     db.commit()
@@ -60,6 +61,8 @@ def update_book(
         book.title = book_update.title
     if book_update.author_id is not None:
         bool.author_id = book_update.author_id
+    if book_update.is_rented is not None:
+        book.is_rented = book_update.is_rented
 
     db.commit()
     db.refresh(book)

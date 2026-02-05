@@ -45,7 +45,7 @@ def get_author(author_id:int, db:Session = Depends(get_db)):
 def update_author(
         author_id: int,
         author_update: AuthorUpdate,
-        db: Session: Depends(get_db)
+        db: Session = Depends(get_db)
 ):
     #first fetch the record 
     author = db.query(Author).filter(Author.id == author_id).first()
