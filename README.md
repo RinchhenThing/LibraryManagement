@@ -1,81 +1,115 @@
-# Project: Library Book Manager 
+# Project: Library Book Manager
 
 ## What am I building?
 
---- 
+A simple **Library Book Manager API** using FastAPI that manages authors and their books.
 
-## Entities (table)
-We'll start with two tables
-  **a. Author**
-  **b. Book**
+---
 
-## Relationship
-  - One **Author** -> many **books**
-  - Each Book belongs to one Author
+## Entities (Database Tables)
 
-  So:
-  **Aurthor -> Books** = one to many
-  **Book to Author** = one to one. 
+We will start with **two tables**:
 
---- 
+- **Author**
+- **Book**
 
-## Final API features 
-  - Create Author
-  - List authors
-  - Create books (linked to author)
-  - List books 
-  - See books by author 
+### Relationship
 
---- 
+- One **Author** ➜ many **Books**
+- Each **Book** belongs to **one Author**
 
-## Tech choices 
-- **fastapi** -> APU framework 
-- **SQLite** -> zero setup DB 
-- **SQLALchemy (ORM)** -> industry standard
-- **Pydantic** -> validation
+So:
+- **Author → Books** = one-to-many  
+- **Book → Author** = many-to-one  
 
---- 
+---
+
+## Final API Features
+
+- Create Author
+- List Authors
+- Create Books (linked to an Author)
+- List Books
+- View Books by Author
+
+---
+
+## Tech Choices
+
+- **FastAPI** → API framework
+- **SQLite** → Zero-setup database
+- **SQLAlchemy (ORM)** → Industry standard ORM
+- **Pydantic** → Data validation
+
+---
+
 ## Mental Model (Request Flow)
 
-Now lets make a simple mental map 
-  To put it into layers:
-  
-  Request (JSON)
-    |
-  Schema (Pydantic) -> validation
-    |
-  Route (FastAPI)
-    |
-  Model (SQLALchemy) -> database tables 
-    |
-  Database 
+```
 
-#Project Structure 
+Request (JSON)
+↓
+Schema (Pydantic) → Validation
+↓
+Route (FastAPI)
+↓
+Model (SQLAlchemy) → Database Tables
+↓
+Database
+
+```
+
+---
+
+## Project Structure
+
+```
+
 book_api/
 ├── main.py
 ├── database.py
 ├── models/
-│   ├── __init__.py
+│   ├── **init**.py
 │   ├── author.py
 │   └── book.py
 ├── schemas/
-│   ├── __init__.py
+│   ├── **init**.py
 │   ├── author.py
 │   └── book.py
 ├── routers/
-│   ├── __init__.py
+│   ├── **init**.py
 │   ├── authors.py
 │   └── books.py
 
+````
 
-First: Lets setup  the database 
-a. pip install sqlalchemy
-b. write database.py 
+---
 
-Then, lets focus on models
-  this is where the PK and FK live  
-a. Lets write a model for author then book 
+## Step 1: Setup the Database
 
-Now, Lets move towards writing the schemas 
-a. Author 
-b. Book 
+1. Install dependencies:
+   ```bash
+   pip install sqlalchemy
+````
+
+2. Create `database.py`
+
+---
+
+## Step 2: Define Models
+
+This is where **primary keys (PK)** and **foreign keys (FK)** live.
+
+* Create `Author` model
+* Create `Book` model
+
+---
+
+## Step 3: Create Schemas (Pydantic)
+
+Schemas handle **input validation and response formatting**.
+
+* Author schema
+* Book schema
+
+
