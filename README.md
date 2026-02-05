@@ -66,3 +66,7 @@ b. write database.py
 Then, lets focus on models
   this is where the PK and FK live  
 a. Lets write a model for author then book 
+
+Now, Lets move towards writing the schemas 
+a. Author 
+b. Book 
