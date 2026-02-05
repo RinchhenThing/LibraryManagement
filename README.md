@@ -82,7 +82,6 @@ book_api/
 │   └── books.py
 
 ````
-
 ---
 
 ## Step 1: Setup the Database
@@ -90,7 +89,6 @@ book_api/
 1. Install dependencies:
    ```bash
    pip install sqlalchemy
-````
 
 2. Create `database.py`
 
