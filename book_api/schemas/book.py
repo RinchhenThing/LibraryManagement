@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional 
 
 class BookCreate(BaseModel):
     title: str
@@ -9,4 +10,10 @@ class BookResponse(BookCreate):
     
     class Config:
         from_attributes = True 
+
+
+class BookUpdate(BaseModel):
+    #here optional means we can update one field without hindering the other. 
+    title: Optional[str] = None 
+    author_id: Optional[int] = None 
 

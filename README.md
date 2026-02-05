@@ -117,9 +117,38 @@ Routers handle the **API and logic behind apis**.
 * Author router 
 * Book Router 
 
-## Step 5: Wire everythin in main.py 
+## Step 5: Wire everything in main.py 
 
 Everything that works here will be reached at and routed through the **main.py** file. 
+
+--- 
+
+## CRUD (Create Read Update and Delete)
+
+CRDU operations are simply for the normal database operations.
+
+We have already created the create operation.
+
+| Operation  | HTTP            | Example               |
+| ---------- | --------------- | --------------------- |
+| **C**reate | `POST`          | Add author / book     |
+| **R**ead   | `GET`           | List authors, get one |
+| **U**pdate | `PUT` / `PATCH` | Edit title            |
+| **D**elete | `DELETE`        | Remove book           |
+
+
+So, **moving forward**
+
+## Step 1: Add Update schemas 
+We don't reuse the create schemas for update, because **Updates** are usually partial. 
+
+## Step 2: Read (list + get by id)
+
+Here we will write the code to read data to:
+- **List all data**
+- **Get data by id**
+
+and the code will be added to the router. 
 
 
 
