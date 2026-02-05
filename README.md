@@ -112,4 +112,17 @@ Schemas handle **input validation and response formatting**.
 * Author schema
 * Book schema
 
+## Step 4: Routers (API logic)
+
+Routers handle the **API and logic behind apis**.
+
+* Author router 
+* Book Router 
+
+## Step 5: Wire everythin in main.py 
+
+Everything that works here will be reached at and routed through the **main.py** file. 
+
+
+
 
