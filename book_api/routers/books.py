@@ -28,3 +28,16 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
     db.refresh(db_book) 
     return db_book 
 
+#to list the books 
+@router.get("/{book_id}", response_model=list[BookResponse])
+def list_books(db: Session = Depends(get_db)):
+    return = db.query(Book).all()
+
+#to get by id 
+@router.get("/{book_id}", response_model=BookResponse)
+def get_book(book_id: int, db:Session = Depends(get_db)):
+    book = db.query(Book).filter(Book.id == book_id).first()
+    if not book:
+        raise HTTPException(status=404, details="Book not found")
+    return book 
+
