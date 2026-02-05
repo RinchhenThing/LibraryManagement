@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException 
+from fastapi import APIRouter, Depends, HTTPException, Query, status 
 from sqlalchemy.orm import Session 
 from database import SessionLocal
 from models.book import Book 
@@ -33,8 +33,16 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
 
 #to list the books 
 @router.get("/", response_model=list[BookResponse])
-def list_books(db: Session = Depends(get_db)):
-    return db.query(Book).all()
+def list_books(
+        rented: bool | None = Query(default=None),
+        db: Session = Depends(get_db)
+):
+    query = db.query(Book)
+
+    if rented is not None:
+        query = query.filter(Book.is_rented == rented)
+        
+    return query.all()
 
 #to get by id 
 @router.get("/{book_id}", response_model=BookResponse)
@@ -73,7 +81,13 @@ def update_book(
 def delete_book(book_id: int, db: Session = Depends(get_db)):
     book = db.query(Book).filter(Book.id == book_id).first()
     if not book:
-        raise HTTPException(status=400, details="Book not found")
+        raise HTTPException(status=404, details="Book not found")
+
+    if book.is_rented:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Cannot delete a rented book"
+        )
 
     db.delete(book)
     db.commit()

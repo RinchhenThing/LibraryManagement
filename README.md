@@ -151,5 +151,51 @@ Here we will write the code to read data to:
 and the code will be added to the router. 
 
 
+## Step 3: Update
+The update is tricky but simple. We first fetch the record
+then modify the provided fields (from input) 
+and then, Commit -> refresh -> return. All in database. 
+
+So, the changes will be done on the routers.
+
+## Step 4: And finally delete 
+Here, its simple. first we fetch the record we want to delete, i.e.  we will keep the requested record in a variable, then, check if it is recorded, then db.delete()
+
+--- 
+
+## Rental 
+Now, we will make the books rent-able. 
+
+## Step 1: Database model
+First lets add a small, boolean from sqlalchemy.
+
+Then in the book model, lets add the is_rented variable.
+
+## Step 2: Schemas 
+
+Our API should:
+- accept is_rented
+- return is_rented
+
+so lets, add, the is_rented variable in the BookCreate, BookResponse and BookUpdate schemas.
+
+## Step 3: Router
+Now we allow:
+- setting rented status 
+- updating it later 
+
+**The changes will be made on the routers.**
+
+## Step 4: query parameters
+
+**Now** we will make this happen, we will filter all the books from query this way, we can filter the books using url and list the rented and not rented ones easily. 
+
+## Step 5: Enforce not to delete rented books
+We will simply import status and then apply the rule in a if statement, that rented books can't be deleted.
+
+
+---
+
+
 
 
