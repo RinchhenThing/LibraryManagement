@@ -1,32 +1,41 @@
-#Project: Library Book Manager 
+# Project: Library Book Manager 
 
-#What am I building?
+## What am I building?
 
-Entities (table)
-= We'll start with two tables
-  a. Author
-  b. Book
+--- 
 
-Relationship
-  - One Author -> many books
+## Entities (table)
+We'll start with two tables
+  **a. Author**
+  **b. Book**
+
+## Relationship
+  - One **Author** -> many **books**
   - Each Book belongs to one Author
 
-  So, Aurthor -> Books is one to many
-      and Book to Author is one to one. 
+  So:
+  **Aurthor -> Books** = one to many
+  **Book to Author** = one to one. 
 
-#Final API features 
-  a. Create Author
-  b. List authors
-  c. Create books (linked to author)
-  d. List books 
-  e. See books by author 
+--- 
 
-#Tech choices 
-  a. fastapi -> APU framework 
-  b. SQLite -> zero setup DB 
-  c. SQLALchemy (ORM) -> industry standard
-  d. Pydantic -> validation
+## Final API features 
+  - Create Author
+  - List authors
+  - Create books (linked to author)
+  - List books 
+  - See books by author 
 
+--- 
+
+## Tech choices 
+- **fastapi** -> APU framework 
+- **SQLite** -> zero setup DB 
+- **SQLALchemy (ORM)** -> industry standard
+- **Pydantic** -> validation
+
+--- 
+## Mental Model (Request Flow)
 
 Now lets make a simple mental map 
   To put it into layers:
