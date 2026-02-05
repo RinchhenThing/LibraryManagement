@@ -92,7 +92,7 @@ book_api/
 
 2. Create `database.py`
 
----
+--- 
 
 ## Step 2: Define Models
 
