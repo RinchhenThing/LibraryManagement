@@ -12,7 +12,7 @@ router = APIRouter(
 def get_db():
     db = SessionLocal()
     try:
-        yeild db 
+        yield db 
     finally:
         db.close() 
 
